@@ -4,6 +4,9 @@
 #include <Adafruit_Sensor.h>
 #include <DHT.h>
 #include <MQUnifiedsensor.h>
+#include <Wire.h>
+#include <Adafruit_GFX.h>
+#include <Adafruit_SSD1306.h>
 
 #define DHT_TYPE DHT11
 #define DHT_PIN 27
@@ -42,6 +45,8 @@ DHT dht(DHT_PIN, DHT_TYPE);
 MQUnifiedsensor MQ135(BOARD, VOLTAGE_RESOLUTION, ADC_BIT_RESOLUTION, MQ135_PIN, MQ135_TYPE);
 MQUnifiedsensor MQ9(BOARD, VOLTAGE_RESOLUTION, ADC_BIT_RESOLUTION, MQ9_PIN, MQ9_TYPE);
 
+Adafruit_SSD1306 display = Adafruit_SSD1306(128, 64, &Wire);
+
 float temperature, humidity, alcohol, co2, toluen, nh4, acetone, co, lpg, methane;
 
 void setup_wifi();
@@ -51,16 +56,27 @@ void setup_mq9();
 void dht11_measure();
 void mq135_measure();
 void mq9_measure();
+void display_readings_1();
+void display_readings_2();
 
 void setup() {
   Serial.begin(115200);
+
+  if(!display.begin(SSD1306_SWITCHCAPVCC, 0x3C)) { 
+    Serial.println(F("SSD1306 allocation failed"));
+    for(;;); // Don't proceed, loop forever
+  }
   setup_wifi();
   client.setServer(mqtt_server, 1883);
   mqtt_reconnect();
   dht.begin();
   setup_mq135();
   setup_mq9();
-  delay(1000);
+  display.display();
+  delay(2000);
+  display.clearDisplay();
+  display.setTextSize(1);
+  display.setTextColor(WHITE);
 }
 
 void loop() {
@@ -70,7 +86,10 @@ void loop() {
   dht11_measure();
   mq135_measure();
   mq9_measure();
-  delay(1000);
+  display_readings_1();
+  delay(2000);
+  display_readings_2();
+  delay(2000);
 }
 
 void setup_wifi() {
@@ -171,6 +190,7 @@ void dht11_measure() {
     Serial.println(payload);
     client.publish(humidity_topic, payload);
   }
+
   Serial.println("");
 }
 
@@ -229,8 +249,6 @@ void mq135_measure() {
   Serial.println(payload);
   client.publish(acetone_topic, payload);
   Serial.println("");
-
-  delay(500); // Sampling frequency
 }
 
 void mq9_measure() {
@@ -270,6 +288,50 @@ void mq9_measure() {
   Serial.println(payload);
   client.publish(methane_topic, payload);
   Serial.println("");
+}
 
-  delay(500); // Sampling frequency
+void display_readings_1() {
+  display.clearDisplay();
+
+  display.setCursor(0,0);
+  display.print("Temperature: ");
+  display.print(temperature);
+  display.print(" C");
+  display.setCursor(0,10);
+  display.print("Humidity: ");
+  display.print(humidity);
+  display.print("% Rh"); 
+  display.setCursor(0,20);
+  display.print("CO: ");
+  display.print(co);
+  display.setCursor(0,30);
+  display.print("CO2: ");
+  display.print(co2);
+  display.setCursor(0,40);
+  display.print("NH4: ");
+  display.print(nh4);
+
+  display.display();
+}
+
+void display_readings_2() {
+  display.clearDisplay();
+
+  display.setCursor(0,0);
+  display.print("Acetone: ");
+  display.print(acetone);
+  display.setCursor(0,10);
+  display.print("Alcohol: ");
+  display.print(alcohol);
+  display.setCursor(0,20);
+  display.print("Methane: ");
+  display.print(methane);
+  display.setCursor(0,30);
+  display.print("Toluen: ");
+  display.print(toluen);
+  display.setCursor(0,40);
+  display.print("LPG: ");
+  display.print(lpg);
+
+  display.display();
 }
