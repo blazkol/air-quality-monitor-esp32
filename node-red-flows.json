@@ -1,0 +1,2106 @@
+[
+    {
+        "id": "608de286df493423",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "bef68ac466b53078",
+        "type": "mqtt in",
+        "z": "608de286df493423",
+        "name": "",
+        "topic": "esp32/temperature",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "8df3c208bcb62312",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 150,
+        "y": 20,
+        "wires": [
+            [
+                "dcf6876085543aa3"
+            ]
+        ]
+    },
+    {
+        "id": "dcf6876085543aa3",
+        "type": "delay",
+        "z": "608de286df493423",
+        "name": "",
+        "pauseType": "rate",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "minute",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": true,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 370,
+        "y": 20,
+        "wires": [
+            [
+                "c0af10d6bd42ff17",
+                "fc73183ed52b7c87"
+            ]
+        ]
+    },
+    {
+        "id": "c0af10d6bd42ff17",
+        "type": "change",
+        "z": "608de286df493423",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{\t    \"value\": msg.payload,\t    \"time\": $millis()\t}",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 620,
+        "y": 20,
+        "wires": [
+            [
+                "cc3dfc926bbc328f"
+            ]
+        ]
+    },
+    {
+        "id": "e0aa8161b3e076a5",
+        "type": "mqtt in",
+        "z": "608de286df493423",
+        "name": "",
+        "topic": "esp32/humidity",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "8df3c208bcb62312",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 140,
+        "y": 100,
+        "wires": [
+            [
+                "1eb5492b8302492a"
+            ]
+        ]
+    },
+    {
+        "id": "1eb5492b8302492a",
+        "type": "delay",
+        "z": "608de286df493423",
+        "name": "",
+        "pauseType": "rate",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "minute",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": true,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 370,
+        "y": 100,
+        "wires": [
+            [
+                "fc2392adff4f434d",
+                "bba478613f610b8c"
+            ]
+        ]
+    },
+    {
+        "id": "fc2392adff4f434d",
+        "type": "change",
+        "z": "608de286df493423",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{\t    \"value\": msg.payload,\t    \"time\": $millis()\t}",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 620,
+        "y": 100,
+        "wires": [
+            [
+                "328dbcbceb9d62b8"
+            ]
+        ]
+    },
+    {
+        "id": "0ce6a636923a5e5e",
+        "type": "mqtt in",
+        "z": "608de286df493423",
+        "name": "",
+        "topic": "esp32/alcohol",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "8df3c208bcb62312",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 130,
+        "y": 180,
+        "wires": [
+            [
+                "7b9d61b69a01cad4"
+            ]
+        ]
+    },
+    {
+        "id": "7b9d61b69a01cad4",
+        "type": "delay",
+        "z": "608de286df493423",
+        "name": "",
+        "pauseType": "rate",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "minute",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": true,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 370,
+        "y": 180,
+        "wires": [
+            [
+                "78fe6a3da1e0bd46",
+                "2289a38fd0a8841e"
+            ]
+        ]
+    },
+    {
+        "id": "78fe6a3da1e0bd46",
+        "type": "change",
+        "z": "608de286df493423",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{\t    \"value\": msg.payload,\t    \"time\": $millis()\t}",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 620,
+        "y": 180,
+        "wires": [
+            [
+                "648a628917b4b1af"
+            ]
+        ]
+    },
+    {
+        "id": "b0f8944159c8b4c2",
+        "type": "inject",
+        "z": "608de286df493423",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "60",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "1",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 130,
+        "y": 860,
+        "wires": [
+            [
+                "6ec6c1289e2ec783",
+                "2d9316e36b57f630",
+                "6c901a62deab9f06",
+                "c3b843f785b5dbfc",
+                "234d27b8912742c3",
+                "ebbe2661cb34cc05",
+                "a5ab805b1d110c53",
+                "a45e781f080a30cd",
+                "b4aae56d2026272b",
+                "992160c8cd2de8e0"
+            ]
+        ]
+    },
+    {
+        "id": "fc73183ed52b7c87",
+        "type": "ui_text",
+        "z": "608de286df493423",
+        "group": "82180c12c7c49c6e",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Current value:",
+        "format": "{{msg.payload}} °C",
+        "layout": "row-left",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 620,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "bba478613f610b8c",
+        "type": "ui_text",
+        "z": "608de286df493423",
+        "group": "c324df6b32f2824f",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Current value:",
+        "format": "{{msg.payload}}% Rh",
+        "layout": "row-left",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 620,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "4e22445872eed2b5",
+        "type": "function",
+        "z": "608de286df493423",
+        "name": "function 1",
+        "func": "var payload = msg.payload;\nvar readings = [];\nvar trend = [];\nvar readingsPoint, trendPoint;\n\nfor (let i = 0; i < payload.length; i++) {\n    readingsPoint = {\n        \"x\": payload[i].time,\n        \"y\": payload[i].value\n    }\n    readings.push(readingsPoint);\n\n    trendPoint = { \"x\": payload[i].time }\n    if (i == 0) trendPoint[\"y\"] = payload[0].value;\n    else if (i == 1) trendPoint[\"y\"] = (payload[0].value + payload[1].value) / 2\n    else if (i == 2) trendPoint[\"y\"] = (payload[0].value + payload[1].value + payload[2].value) / 3\n    else if (i == 3) trendPoint[\"y\"] = (payload[0].value + payload[1].value + payload[2].value + payload[3].value) / 4\n    else trendPoint[\"y\"] = (payload[i].value + payload[i - 1].value + payload[i - 2].value + payload[i - 3].value + payload[i-4].value) / 5;\n    trend.push(trendPoint);\n}\n\nmsg.payload = [{\n    \"series\": [\"Reading\", \"Trend\"],\n    \"data\": [readings, trend],\n    \"labels\": [\"\",\"\"]\n}];\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 820,
+        "y": 860,
+        "wires": [
+            [
+                "b20ff90901f4956e"
+            ]
+        ]
+    },
+    {
+        "id": "ad50778e280fb60f",
+        "type": "function",
+        "z": "608de286df493423",
+        "name": "function 2",
+        "func": "var payload = msg.payload\nvar readings = [];\nvar trend = [];\nvar readingsPoint, trendPoint;\n\nfor(let i = 0;i < payload.length; i++) {\n    readingsPoint = {\n        \"x\": payload[i].time,\n        \"y\": payload[i].value\n    }\n    readings.push(readingsPoint);\n\n    trendPoint = { \"x\": payload[i].time }\n    if (i == 0) trendPoint[\"y\"] = payload[0].value;\n    else if (i == 1) trendPoint[\"y\"] = (payload[0].value + payload[1].value) / 2\n    else if (i == 2) trendPoint[\"y\"] = (payload[0].value + payload[1].value + payload[2].value) / 3\n    else if (i == 3) trendPoint[\"y\"] = (payload[0].value + payload[1].value + payload[2].value + payload[3].value) / 4\n    else trendPoint[\"y\"] = (payload[i].value + payload[i-1].value + payload[i-2].value + payload[i-3].value + payload[i-4].value) / 5;\n    trend.push(trendPoint);\n}\n\nmsg.payload = [{\n    \"series\": [\"Reading\", \"Trend\"],\n    \"data\": [readings, trend],\n    \"labels\": [\"\",\"\"]\n}];\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 820,
+        "y": 920,
+        "wires": [
+            [
+                "2e54f3857c4456ad"
+            ]
+        ]
+    },
+    {
+        "id": "b20ff90901f4956e",
+        "type": "ui_chart",
+        "z": "608de286df493423",
+        "name": "Temperature chart",
+        "group": "82180c12c7c49c6e",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "label": "Readings & Trend over time",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 1030,
+        "y": 860,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "2e54f3857c4456ad",
+        "type": "ui_chart",
+        "z": "608de286df493423",
+        "name": "Humidity chart",
+        "group": "c324df6b32f2824f",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "label": "Readings & Trend over time",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 1020,
+        "y": 920,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "cc3dfc926bbc328f",
+        "type": "mongodb out",
+        "z": "608de286df493423",
+        "mongodb": "f35dea480c6076cb",
+        "name": "",
+        "collection": "temperature",
+        "payonly": true,
+        "upsert": false,
+        "multi": false,
+        "operation": "insert",
+        "x": 980,
+        "y": 20,
+        "wires": []
+    },
+    {
+        "id": "328dbcbceb9d62b8",
+        "type": "mongodb out",
+        "z": "608de286df493423",
+        "mongodb": "f35dea480c6076cb",
+        "name": "",
+        "collection": "humidity",
+        "payonly": true,
+        "upsert": false,
+        "multi": false,
+        "operation": "insert",
+        "x": 960,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "6ec6c1289e2ec783",
+        "type": "mongodb in",
+        "z": "608de286df493423",
+        "mongodb": "f35dea480c6076cb",
+        "name": "",
+        "collection": "temperature",
+        "operation": "find",
+        "x": 540,
+        "y": 860,
+        "wires": [
+            [
+                "4e22445872eed2b5"
+            ]
+        ]
+    },
+    {
+        "id": "2d9316e36b57f630",
+        "type": "mongodb in",
+        "z": "608de286df493423",
+        "mongodb": "f35dea480c6076cb",
+        "name": "",
+        "collection": "humidity",
+        "operation": "find",
+        "x": 520,
+        "y": 920,
+        "wires": [
+            [
+                "ad50778e280fb60f"
+            ]
+        ]
+    },
+    {
+        "id": "2289a38fd0a8841e",
+        "type": "ui_text",
+        "z": "608de286df493423",
+        "group": "05166228a5601a66",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Current value:",
+        "format": "{{msg.payload}}",
+        "layout": "row-left",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 620,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "648a628917b4b1af",
+        "type": "mongodb out",
+        "z": "608de286df493423",
+        "mongodb": "f35dea480c6076cb",
+        "name": "",
+        "collection": "alcohol",
+        "payonly": true,
+        "upsert": false,
+        "multi": false,
+        "operation": "insert",
+        "x": 960,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "a68b4b5f1fd57404",
+        "type": "mqtt in",
+        "z": "608de286df493423",
+        "name": "",
+        "topic": "esp32/co2",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "8df3c208bcb62312",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 120,
+        "y": 260,
+        "wires": [
+            [
+                "c84e67d598fb2944"
+            ]
+        ]
+    },
+    {
+        "id": "c84e67d598fb2944",
+        "type": "delay",
+        "z": "608de286df493423",
+        "name": "",
+        "pauseType": "rate",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "minute",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": true,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 370,
+        "y": 260,
+        "wires": [
+            [
+                "cecf5050e2eb0c9c",
+                "46fcaa116d16dad2"
+            ]
+        ]
+    },
+    {
+        "id": "cecf5050e2eb0c9c",
+        "type": "change",
+        "z": "608de286df493423",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{\t    \"value\": msg.payload,\t    \"time\": $millis()\t}",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 620,
+        "y": 260,
+        "wires": [
+            [
+                "5884d0b98ab846ab"
+            ]
+        ]
+    },
+    {
+        "id": "46fcaa116d16dad2",
+        "type": "ui_text",
+        "z": "608de286df493423",
+        "group": "ce4b9af3988a043c",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Current value:",
+        "format": "{{msg.payload}}",
+        "layout": "row-left",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 620,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "5884d0b98ab846ab",
+        "type": "mongodb out",
+        "z": "608de286df493423",
+        "mongodb": "f35dea480c6076cb",
+        "name": "",
+        "collection": "co2",
+        "payonly": true,
+        "upsert": false,
+        "multi": false,
+        "operation": "insert",
+        "x": 950,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "cf0ea6d38c4f8a56",
+        "type": "mqtt in",
+        "z": "608de286df493423",
+        "name": "",
+        "topic": "esp32/toluen",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "8df3c208bcb62312",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 130,
+        "y": 340,
+        "wires": [
+            [
+                "4091115af25c78ec"
+            ]
+        ]
+    },
+    {
+        "id": "4091115af25c78ec",
+        "type": "delay",
+        "z": "608de286df493423",
+        "name": "",
+        "pauseType": "rate",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "minute",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": true,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 370,
+        "y": 340,
+        "wires": [
+            [
+                "1a2d81897f56ed49",
+                "f8d3e226fd3b9b48"
+            ]
+        ]
+    },
+    {
+        "id": "1a2d81897f56ed49",
+        "type": "change",
+        "z": "608de286df493423",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{\t    \"value\": msg.payload,\t    \"time\": $millis()\t}",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 620,
+        "y": 340,
+        "wires": [
+            [
+                "d5af4524849df7eb"
+            ]
+        ]
+    },
+    {
+        "id": "f8d3e226fd3b9b48",
+        "type": "ui_text",
+        "z": "608de286df493423",
+        "group": "6f27e10f0af5bc22",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Current value:",
+        "format": "{{msg.payload}}",
+        "layout": "row-left",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 620,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "d5af4524849df7eb",
+        "type": "mongodb out",
+        "z": "608de286df493423",
+        "mongodb": "f35dea480c6076cb",
+        "name": "",
+        "collection": "toluen",
+        "payonly": true,
+        "upsert": false,
+        "multi": false,
+        "operation": "insert",
+        "x": 960,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "05161cda5e45df73",
+        "type": "mqtt in",
+        "z": "608de286df493423",
+        "name": "",
+        "topic": "esp32/nh4",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "8df3c208bcb62312",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 120,
+        "y": 420,
+        "wires": [
+            [
+                "8ec4130b71c18fbc"
+            ]
+        ]
+    },
+    {
+        "id": "8ec4130b71c18fbc",
+        "type": "delay",
+        "z": "608de286df493423",
+        "name": "",
+        "pauseType": "rate",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "minute",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": true,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 370,
+        "y": 420,
+        "wires": [
+            [
+                "f581ccf1ee0a92b3",
+                "d76c1becb0d30f46"
+            ]
+        ]
+    },
+    {
+        "id": "f581ccf1ee0a92b3",
+        "type": "change",
+        "z": "608de286df493423",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{\t    \"value\": msg.payload,\t    \"time\": $millis()\t}",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 620,
+        "y": 420,
+        "wires": [
+            [
+                "6c8090b1073912b2"
+            ]
+        ]
+    },
+    {
+        "id": "d76c1becb0d30f46",
+        "type": "ui_text",
+        "z": "608de286df493423",
+        "group": "bab624d37a5de8c3",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Current value:",
+        "format": "{{msg.payload}}",
+        "layout": "row-left",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 620,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "6c8090b1073912b2",
+        "type": "mongodb out",
+        "z": "608de286df493423",
+        "mongodb": "f35dea480c6076cb",
+        "name": "",
+        "collection": "nh4",
+        "payonly": true,
+        "upsert": false,
+        "multi": false,
+        "operation": "insert",
+        "x": 950,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "4bf340414985f597",
+        "type": "mqtt in",
+        "z": "608de286df493423",
+        "name": "",
+        "topic": "esp32/acetone",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "8df3c208bcb62312",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 140,
+        "y": 500,
+        "wires": [
+            [
+                "3db981f05c1dea43"
+            ]
+        ]
+    },
+    {
+        "id": "3db981f05c1dea43",
+        "type": "delay",
+        "z": "608de286df493423",
+        "name": "",
+        "pauseType": "rate",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "minute",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": true,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 370,
+        "y": 500,
+        "wires": [
+            [
+                "4b15feb1e381ad58",
+                "ba0daa93e1863f8a"
+            ]
+        ]
+    },
+    {
+        "id": "4b15feb1e381ad58",
+        "type": "change",
+        "z": "608de286df493423",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{\t    \"value\": msg.payload,\t    \"time\": $millis()\t}",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 620,
+        "y": 500,
+        "wires": [
+            [
+                "18efc10b6beef62e"
+            ]
+        ]
+    },
+    {
+        "id": "ba0daa93e1863f8a",
+        "type": "ui_text",
+        "z": "608de286df493423",
+        "group": "e2b68fc14cab1c4b",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Current value:",
+        "format": "{{msg.payload}}",
+        "layout": "row-left",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 620,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "18efc10b6beef62e",
+        "type": "mongodb out",
+        "z": "608de286df493423",
+        "mongodb": "f35dea480c6076cb",
+        "name": "",
+        "collection": "acetone",
+        "payonly": true,
+        "upsert": false,
+        "multi": false,
+        "operation": "insert",
+        "x": 960,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "fdd2d236c2d933e5",
+        "type": "mqtt in",
+        "z": "608de286df493423",
+        "name": "",
+        "topic": "esp32/co",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "8df3c208bcb62312",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 120,
+        "y": 580,
+        "wires": [
+            [
+                "1b04a513a2acb698"
+            ]
+        ]
+    },
+    {
+        "id": "1b04a513a2acb698",
+        "type": "delay",
+        "z": "608de286df493423",
+        "name": "",
+        "pauseType": "rate",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "minute",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": true,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 370,
+        "y": 580,
+        "wires": [
+            [
+                "c2606beefd4f9e7c",
+                "92199f9897a84be4"
+            ]
+        ]
+    },
+    {
+        "id": "c2606beefd4f9e7c",
+        "type": "change",
+        "z": "608de286df493423",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{\t    \"value\": msg.payload,\t    \"time\": $millis()\t}",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 620,
+        "y": 580,
+        "wires": [
+            [
+                "dd61d71a786731b5"
+            ]
+        ]
+    },
+    {
+        "id": "92199f9897a84be4",
+        "type": "ui_text",
+        "z": "608de286df493423",
+        "group": "e049a6bd78324a36",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Current value:",
+        "format": "{{msg.payload}}",
+        "layout": "row-left",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 620,
+        "y": 620,
+        "wires": []
+    },
+    {
+        "id": "dd61d71a786731b5",
+        "type": "mongodb out",
+        "z": "608de286df493423",
+        "mongodb": "f35dea480c6076cb",
+        "name": "",
+        "collection": "co",
+        "payonly": true,
+        "upsert": false,
+        "multi": false,
+        "operation": "insert",
+        "x": 950,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "4a96c7805f40f339",
+        "type": "mqtt in",
+        "z": "608de286df493423",
+        "name": "",
+        "topic": "esp32/lpg",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "8df3c208bcb62312",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 120,
+        "y": 660,
+        "wires": [
+            [
+                "bf55b7dc3b2bff39"
+            ]
+        ]
+    },
+    {
+        "id": "bf55b7dc3b2bff39",
+        "type": "delay",
+        "z": "608de286df493423",
+        "name": "",
+        "pauseType": "rate",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "minute",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": true,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 370,
+        "y": 660,
+        "wires": [
+            [
+                "8fded43dfef29786",
+                "5250a97e336748c4"
+            ]
+        ]
+    },
+    {
+        "id": "8fded43dfef29786",
+        "type": "change",
+        "z": "608de286df493423",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{\t    \"value\": msg.payload,\t    \"time\": $millis()\t}",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 620,
+        "y": 660,
+        "wires": [
+            [
+                "5a2dc09456331556"
+            ]
+        ]
+    },
+    {
+        "id": "5250a97e336748c4",
+        "type": "ui_text",
+        "z": "608de286df493423",
+        "group": "ccccaba7e1f8a518",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Current value:",
+        "format": "{{msg.payload}}",
+        "layout": "row-left",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 620,
+        "y": 700,
+        "wires": []
+    },
+    {
+        "id": "5a2dc09456331556",
+        "type": "mongodb out",
+        "z": "608de286df493423",
+        "mongodb": "f35dea480c6076cb",
+        "name": "",
+        "collection": "lpg",
+        "payonly": true,
+        "upsert": false,
+        "multi": false,
+        "operation": "insert",
+        "x": 950,
+        "y": 660,
+        "wires": []
+    },
+    {
+        "id": "d48fbfbb0bc141cf",
+        "type": "mqtt in",
+        "z": "608de286df493423",
+        "name": "",
+        "topic": "esp32/methane",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "8df3c208bcb62312",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 140,
+        "y": 740,
+        "wires": [
+            [
+                "96e8c5a89fe74b59"
+            ]
+        ]
+    },
+    {
+        "id": "96e8c5a89fe74b59",
+        "type": "delay",
+        "z": "608de286df493423",
+        "name": "",
+        "pauseType": "rate",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "minute",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": true,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 370,
+        "y": 740,
+        "wires": [
+            [
+                "c6e14ab2c13fb639",
+                "481eab8590819a67"
+            ]
+        ]
+    },
+    {
+        "id": "c6e14ab2c13fb639",
+        "type": "change",
+        "z": "608de286df493423",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{\t    \"value\": msg.payload,\t    \"time\": $millis()\t}",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 620,
+        "y": 740,
+        "wires": [
+            [
+                "27291f4e07f382d8"
+            ]
+        ]
+    },
+    {
+        "id": "481eab8590819a67",
+        "type": "ui_text",
+        "z": "608de286df493423",
+        "group": "d0e198bb464f2eb4",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Current value:",
+        "format": "{{msg.payload}}",
+        "layout": "row-left",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 620,
+        "y": 780,
+        "wires": []
+    },
+    {
+        "id": "27291f4e07f382d8",
+        "type": "mongodb out",
+        "z": "608de286df493423",
+        "mongodb": "f35dea480c6076cb",
+        "name": "",
+        "collection": "methane",
+        "payonly": true,
+        "upsert": false,
+        "multi": false,
+        "operation": "insert",
+        "x": 970,
+        "y": 740,
+        "wires": []
+    },
+    {
+        "id": "2e3ed7fb46dc03c8",
+        "type": "function",
+        "z": "608de286df493423",
+        "name": "function 3",
+        "func": "var payload = msg.payload\nvar readings = [];\nvar trend = [];\nvar readingsPoint, trendPoint;\n\nfor(let i = 0;i < payload.length; i++) {\n    readingsPoint = {\n        \"x\": payload[i].time,\n        \"y\": payload[i].value\n    }\n    readings.push(readingsPoint);\n\n    trendPoint = { \"x\": payload[i].time }\n    if (i == 0) trendPoint[\"y\"] = payload[0].value;\n    else if (i == 1) trendPoint[\"y\"] = (payload[0].value + payload[1].value) / 2\n    else if (i == 2) trendPoint[\"y\"] = (payload[0].value + payload[1].value + payload[2].value) / 3\n    else if (i == 3) trendPoint[\"y\"] = (payload[0].value + payload[1].value + payload[2].value + payload[3].value) / 4\n    else trendPoint[\"y\"] = (payload[i].value + payload[i-1].value + payload[i-2].value + payload[i-3].value + payload[i-4].value) / 5;\n    trend.push(trendPoint);\n}\n\nmsg.payload = [{\n    \"series\": [\"Reading\", \"Trend\"],\n    \"data\": [readings, trend],\n    \"labels\": [\"\",\"\"]\n}];\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 820,
+        "y": 980,
+        "wires": [
+            [
+                "e18b3c610c17a530"
+            ]
+        ]
+    },
+    {
+        "id": "e18b3c610c17a530",
+        "type": "ui_chart",
+        "z": "608de286df493423",
+        "name": "Alcohol chart",
+        "group": "05166228a5601a66",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "label": "Readings & Trend over time",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 1010,
+        "y": 980,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "6c901a62deab9f06",
+        "type": "mongodb in",
+        "z": "608de286df493423",
+        "mongodb": "f35dea480c6076cb",
+        "name": "",
+        "collection": "alcohol",
+        "operation": "find",
+        "x": 520,
+        "y": 980,
+        "wires": [
+            [
+                "2e3ed7fb46dc03c8"
+            ]
+        ]
+    },
+    {
+        "id": "94cf399e824db19a",
+        "type": "function",
+        "z": "608de286df493423",
+        "name": "function 4",
+        "func": "var payload = msg.payload\nvar readings = [];\nvar trend = [];\nvar readingsPoint, trendPoint;\n\nfor(let i = 0;i < payload.length; i++) {\n    readingsPoint = {\n        \"x\": payload[i].time,\n        \"y\": payload[i].value\n    }\n    readings.push(readingsPoint);\n\n    trendPoint = { \"x\": payload[i].time }\n    if (i == 0) trendPoint[\"y\"] = payload[0].value;\n    else if (i == 1) trendPoint[\"y\"] = (payload[0].value + payload[1].value) / 2\n    else if (i == 2) trendPoint[\"y\"] = (payload[0].value + payload[1].value + payload[2].value) / 3\n    else if (i == 3) trendPoint[\"y\"] = (payload[0].value + payload[1].value + payload[2].value + payload[3].value) / 4\n    else trendPoint[\"y\"] = (payload[i].value + payload[i-1].value + payload[i-2].value + payload[i-3].value + payload[i-4].value) / 5;\n    trend.push(trendPoint);\n}\n\nmsg.payload = [{\n    \"series\": [\"Reading\", \"Trend\"],\n    \"data\": [readings, trend],\n    \"labels\": [\"\",\"\"]\n}];\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 820,
+        "y": 1040,
+        "wires": [
+            [
+                "b74aa441d2d4a264"
+            ]
+        ]
+    },
+    {
+        "id": "b74aa441d2d4a264",
+        "type": "ui_chart",
+        "z": "608de286df493423",
+        "name": "CO2 chart",
+        "group": "ce4b9af3988a043c",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "label": "Readings & Trend over time",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 1010,
+        "y": 1040,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "c3b843f785b5dbfc",
+        "type": "mongodb in",
+        "z": "608de286df493423",
+        "mongodb": "f35dea480c6076cb",
+        "name": "",
+        "collection": "co2",
+        "operation": "find",
+        "x": 510,
+        "y": 1040,
+        "wires": [
+            [
+                "94cf399e824db19a"
+            ]
+        ]
+    },
+    {
+        "id": "10630b0329a2ca02",
+        "type": "function",
+        "z": "608de286df493423",
+        "name": "function 5",
+        "func": "var payload = msg.payload\nvar readings = [];\nvar trend = [];\nvar readingsPoint, trendPoint;\n\nfor(let i = 0;i < payload.length; i++) {\n    readingsPoint = {\n        \"x\": payload[i].time,\n        \"y\": payload[i].value\n    }\n    readings.push(readingsPoint);\n\n    trendPoint = { \"x\": payload[i].time }\n    if (i == 0) trendPoint[\"y\"] = payload[0].value;\n    else if (i == 1) trendPoint[\"y\"] = (payload[0].value + payload[1].value) / 2\n    else if (i == 2) trendPoint[\"y\"] = (payload[0].value + payload[1].value + payload[2].value) / 3\n    else if (i == 3) trendPoint[\"y\"] = (payload[0].value + payload[1].value + payload[2].value + payload[3].value) / 4\n    else trendPoint[\"y\"] = (payload[i].value + payload[i-1].value + payload[i-2].value + payload[i-3].value + payload[i-4].value) / 5;\n    trend.push(trendPoint);\n}\n\nmsg.payload = [{\n    \"series\": [\"Reading\", \"Trend\"],\n    \"data\": [readings, trend],\n    \"labels\": [\"\",\"\"]\n}];\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 820,
+        "y": 1100,
+        "wires": [
+            [
+                "0c42f3f56ce19ac6"
+            ]
+        ]
+    },
+    {
+        "id": "0c42f3f56ce19ac6",
+        "type": "ui_chart",
+        "z": "608de286df493423",
+        "name": "Toluen chart",
+        "group": "6f27e10f0af5bc22",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "label": "Readings & Trend over time",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 1010,
+        "y": 1100,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "234d27b8912742c3",
+        "type": "mongodb in",
+        "z": "608de286df493423",
+        "mongodb": "f35dea480c6076cb",
+        "name": "",
+        "collection": "toluen",
+        "operation": "find",
+        "x": 520,
+        "y": 1100,
+        "wires": [
+            [
+                "10630b0329a2ca02"
+            ]
+        ]
+    },
+    {
+        "id": "ccc99c80554d1f2d",
+        "type": "function",
+        "z": "608de286df493423",
+        "name": "function 6",
+        "func": "var payload = msg.payload\nvar readings = [];\nvar trend = [];\nvar readingsPoint, trendPoint;\n\nfor(let i = 0;i < payload.length; i++) {\n    readingsPoint = {\n        \"x\": payload[i].time,\n        \"y\": payload[i].value\n    }\n    readings.push(readingsPoint);\n\n    trendPoint = { \"x\": payload[i].time }\n    if (i == 0) trendPoint[\"y\"] = payload[0].value;\n    else if (i == 1) trendPoint[\"y\"] = (payload[0].value + payload[1].value) / 2\n    else if (i == 2) trendPoint[\"y\"] = (payload[0].value + payload[1].value + payload[2].value) / 3\n    else if (i == 3) trendPoint[\"y\"] = (payload[0].value + payload[1].value + payload[2].value + payload[3].value) / 4\n    else trendPoint[\"y\"] = (payload[i].value + payload[i-1].value + payload[i-2].value + payload[i-3].value + payload[i-4].value) / 5;\n    trend.push(trendPoint);\n}\n\nmsg.payload = [{\n    \"series\": [\"Reading\", \"Trend\"],\n    \"data\": [readings, trend],\n    \"labels\": [\"\",\"\"]\n}];\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 820,
+        "y": 1160,
+        "wires": [
+            [
+                "0f3aef2b30aaeec9"
+            ]
+        ]
+    },
+    {
+        "id": "0f3aef2b30aaeec9",
+        "type": "ui_chart",
+        "z": "608de286df493423",
+        "name": "NH4 chart",
+        "group": "bab624d37a5de8c3",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "label": "Readings & Trend over time",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 1000,
+        "y": 1160,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "ebbe2661cb34cc05",
+        "type": "mongodb in",
+        "z": "608de286df493423",
+        "mongodb": "f35dea480c6076cb",
+        "name": "",
+        "collection": "nh4",
+        "operation": "find",
+        "x": 510,
+        "y": 1160,
+        "wires": [
+            [
+                "ccc99c80554d1f2d"
+            ]
+        ]
+    },
+    {
+        "id": "50b18c1aa868af12",
+        "type": "function",
+        "z": "608de286df493423",
+        "name": "function 7",
+        "func": "var payload = msg.payload\nvar readings = [];\nvar trend = [];\nvar readingsPoint, trendPoint;\n\nfor(let i = 0;i < payload.length; i++) {\n    readingsPoint = {\n        \"x\": payload[i].time,\n        \"y\": payload[i].value\n    }\n    readings.push(readingsPoint);\n\n    trendPoint = { \"x\": payload[i].time }\n    if (i == 0) trendPoint[\"y\"] = payload[0].value;\n    else if (i == 1) trendPoint[\"y\"] = (payload[0].value + payload[1].value) / 2\n    else if (i == 2) trendPoint[\"y\"] = (payload[0].value + payload[1].value + payload[2].value) / 3\n    else if (i == 3) trendPoint[\"y\"] = (payload[0].value + payload[1].value + payload[2].value + payload[3].value) / 4\n    else trendPoint[\"y\"] = (payload[i].value + payload[i-1].value + payload[i-2].value + payload[i-3].value + payload[i-4].value) / 5;\n    trend.push(trendPoint);\n}\n\nmsg.payload = [{\n    \"series\": [\"Reading\", \"Trend\"],\n    \"data\": [readings, trend],\n    \"labels\": [\"\",\"\"]\n}];\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 820,
+        "y": 1220,
+        "wires": [
+            [
+                "72ac76d30b1062ac"
+            ]
+        ]
+    },
+    {
+        "id": "72ac76d30b1062ac",
+        "type": "ui_chart",
+        "z": "608de286df493423",
+        "name": "Acetone chart",
+        "group": "e2b68fc14cab1c4b",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "label": "Readings & Trend over time",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 1020,
+        "y": 1220,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "a5ab805b1d110c53",
+        "type": "mongodb in",
+        "z": "608de286df493423",
+        "mongodb": "f35dea480c6076cb",
+        "name": "",
+        "collection": "acetone",
+        "operation": "find",
+        "x": 520,
+        "y": 1220,
+        "wires": [
+            [
+                "50b18c1aa868af12"
+            ]
+        ]
+    },
+    {
+        "id": "a9467186f81ad502",
+        "type": "function",
+        "z": "608de286df493423",
+        "name": "function 8",
+        "func": "var payload = msg.payload\nvar readings = [];\nvar trend = [];\nvar readingsPoint, trendPoint;\n\nfor(let i = 0;i < payload.length; i++) {\n    readingsPoint = {\n        \"x\": payload[i].time,\n        \"y\": payload[i].value\n    }\n    readings.push(readingsPoint);\n\n    trendPoint = { \"x\": payload[i].time }\n    if (i == 0) trendPoint[\"y\"] = payload[0].value;\n    else if (i == 1) trendPoint[\"y\"] = (payload[0].value + payload[1].value) / 2\n    else if (i == 2) trendPoint[\"y\"] = (payload[0].value + payload[1].value + payload[2].value) / 3\n    else if (i == 3) trendPoint[\"y\"] = (payload[0].value + payload[1].value + payload[2].value + payload[3].value) / 4\n    else trendPoint[\"y\"] = (payload[i].value + payload[i-1].value + payload[i-2].value + payload[i-3].value + payload[i-4].value) / 5;\n    trend.push(trendPoint);\n}\n\nmsg.payload = [{\n    \"series\": [\"Reading\", \"Trend\"],\n    \"data\": [readings, trend],\n    \"labels\": [\"\",\"\"]\n}];\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 820,
+        "y": 1280,
+        "wires": [
+            [
+                "f49d621bba2cea49"
+            ]
+        ]
+    },
+    {
+        "id": "f49d621bba2cea49",
+        "type": "ui_chart",
+        "z": "608de286df493423",
+        "name": "CO chart",
+        "group": "e049a6bd78324a36",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "label": "Readings & Trend over time",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 1000,
+        "y": 1280,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "a45e781f080a30cd",
+        "type": "mongodb in",
+        "z": "608de286df493423",
+        "mongodb": "f35dea480c6076cb",
+        "name": "",
+        "collection": "co",
+        "operation": "find",
+        "x": 510,
+        "y": 1280,
+        "wires": [
+            [
+                "a9467186f81ad502"
+            ]
+        ]
+    },
+    {
+        "id": "6b0807adba87db97",
+        "type": "function",
+        "z": "608de286df493423",
+        "name": "function 9",
+        "func": "var payload = msg.payload\nvar readings = [];\nvar trend = [];\nvar readingsPoint, trendPoint;\n\nfor(let i = 0;i < payload.length; i++) {\n    readingsPoint = {\n        \"x\": payload[i].time,\n        \"y\": payload[i].value\n    }\n    readings.push(readingsPoint);\n\n    trendPoint = { \"x\": payload[i].time }\n    if (i == 0) trendPoint[\"y\"] = payload[0].value;\n    else if (i == 1) trendPoint[\"y\"] = (payload[0].value + payload[1].value) / 2\n    else if (i == 2) trendPoint[\"y\"] = (payload[0].value + payload[1].value + payload[2].value) / 3\n    else if (i == 3) trendPoint[\"y\"] = (payload[0].value + payload[1].value + payload[2].value + payload[3].value) / 4\n    else trendPoint[\"y\"] = (payload[i].value + payload[i-1].value + payload[i-2].value + payload[i-3].value + payload[i-4].value) / 5;\n    trend.push(trendPoint);\n}\n\nmsg.payload = [{\n    \"series\": [\"Reading\", \"Trend\"],\n    \"data\": [readings, trend],\n    \"labels\": [\"\",\"\"]\n}];\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 820,
+        "y": 1340,
+        "wires": [
+            [
+                "6aa872269dea3bde"
+            ]
+        ]
+    },
+    {
+        "id": "6aa872269dea3bde",
+        "type": "ui_chart",
+        "z": "608de286df493423",
+        "name": "LPG chart",
+        "group": "ccccaba7e1f8a518",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "label": "Readings & Trend over time",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 1000,
+        "y": 1340,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "b4aae56d2026272b",
+        "type": "mongodb in",
+        "z": "608de286df493423",
+        "mongodb": "f35dea480c6076cb",
+        "name": "",
+        "collection": "lpg",
+        "operation": "find",
+        "x": 510,
+        "y": 1340,
+        "wires": [
+            [
+                "6b0807adba87db97"
+            ]
+        ]
+    },
+    {
+        "id": "c954598596a90af0",
+        "type": "function",
+        "z": "608de286df493423",
+        "name": "function 10",
+        "func": "var payload = msg.payload\nvar readings = [];\nvar trend = [];\nvar readingsPoint, trendPoint;\n\nfor(let i = 0;i < payload.length; i++) {\n    readingsPoint = {\n        \"x\": payload[i].time,\n        \"y\": payload[i].value\n    }\n    readings.push(readingsPoint);\n\n    trendPoint = { \"x\": payload[i].time }\n    if (i == 0) trendPoint[\"y\"] = payload[0].value;\n    else if (i == 1) trendPoint[\"y\"] = (payload[0].value + payload[1].value) / 2\n    else if (i == 2) trendPoint[\"y\"] = (payload[0].value + payload[1].value + payload[2].value) / 3\n    else if (i == 3) trendPoint[\"y\"] = (payload[0].value + payload[1].value + payload[2].value + payload[3].value) / 4\n    else trendPoint[\"y\"] = (payload[i].value + payload[i-1].value + payload[i-2].value + payload[i-3].value + payload[i-4].value) / 5;\n    trend.push(trendPoint);\n}\n\nmsg.payload = [{\n    \"series\": [\"Reading\", \"Trend\"],\n    \"data\": [readings, trend],\n    \"labels\": [\"\",\"\"]\n}];\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 830,
+        "y": 1400,
+        "wires": [
+            [
+                "1ddd0793f9eae358"
+            ]
+        ]
+    },
+    {
+        "id": "1ddd0793f9eae358",
+        "type": "ui_chart",
+        "z": "608de286df493423",
+        "name": "Methane chart",
+        "group": "d0e198bb464f2eb4",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "label": "Readings & Trend over time",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 1020,
+        "y": 1400,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "992160c8cd2de8e0",
+        "type": "mongodb in",
+        "z": "608de286df493423",
+        "mongodb": "f35dea480c6076cb",
+        "name": "",
+        "collection": "methane",
+        "operation": "find",
+        "x": 520,
+        "y": 1400,
+        "wires": [
+            [
+                "c954598596a90af0"
+            ]
+        ]
+    },
+    {
+        "id": "8df3c208bcb62312",
+        "type": "mqtt-broker",
+        "name": "Mosquitto broker",
+        "broker": "localhost",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "82180c12c7c49c6e",
+        "type": "ui_group",
+        "name": "Temperature",
+        "tab": "385389212735204e",
+        "order": 1,
+        "disp": true,
+        "width": "12",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "c324df6b32f2824f",
+        "type": "ui_group",
+        "name": "Humidity",
+        "tab": "385389212735204e",
+        "order": 2,
+        "disp": true,
+        "width": "12",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "f35dea480c6076cb",
+        "type": "mongodb",
+        "hostname": "127.0.0.1",
+        "topology": "direct",
+        "port": "27017",
+        "db": "sensorMeasurements",
+        "name": ""
+    },
+    {
+        "id": "05166228a5601a66",
+        "type": "ui_group",
+        "name": "Alcohol",
+        "tab": "385389212735204e",
+        "order": 7,
+        "disp": true,
+        "width": "12",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "ce4b9af3988a043c",
+        "type": "ui_group",
+        "name": "CO2",
+        "tab": "385389212735204e",
+        "order": 4,
+        "disp": true,
+        "width": "12",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "6f27e10f0af5bc22",
+        "type": "ui_group",
+        "name": "Toluen",
+        "tab": "385389212735204e",
+        "order": 9,
+        "disp": true,
+        "width": "12",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "bab624d37a5de8c3",
+        "type": "ui_group",
+        "name": "NH4",
+        "tab": "385389212735204e",
+        "order": 5,
+        "disp": true,
+        "width": "12",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "e2b68fc14cab1c4b",
+        "type": "ui_group",
+        "name": "Acetone",
+        "tab": "385389212735204e",
+        "order": 6,
+        "disp": true,
+        "width": "12",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "e049a6bd78324a36",
+        "type": "ui_group",
+        "name": "CO",
+        "tab": "385389212735204e",
+        "order": 3,
+        "disp": true,
+        "width": "12",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "ccccaba7e1f8a518",
+        "type": "ui_group",
+        "name": "LPG",
+        "tab": "385389212735204e",
+        "order": 10,
+        "disp": true,
+        "width": "12",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "d0e198bb464f2eb4",
+        "type": "ui_group",
+        "name": "Methane",
+        "tab": "385389212735204e",
+        "order": 8,
+        "disp": true,
+        "width": "12",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "385389212735204e",
+        "type": "ui_tab",
+        "name": "Sensor measurements",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    }
+]
